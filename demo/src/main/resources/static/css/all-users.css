@@ -1,0 +1,44 @@
+ body {
+          font-family: "Roboto", sans-serif;
+          background-color: #f0f2f5;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .user-div {
+          width: 210px;
+          height: 200px;
+          background-color: #ffffff;
+          border-radius: 20px;
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .user-div div {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .user-div div:nth-child(odd) {
+          color: #2c3e50;
+        }
+
+        .user-div div:nth-child(even) {
+          color: #3498db;
+        }
+
+        .all-users-page-div {
+          margin-top: 10px;
+          margin-left: 10px;
+          gap: 10px;
+          display: inline-flex;
+          flex-wrap: wrap;
+        }}

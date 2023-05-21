@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All-Users</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/all-users.css}">
+</head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+
+<div class="filter">
+    <form method="GET" th:action="@{/users/allUsers}">
+        <select name="filterType">
+            <option value="id">ID</option>
+            <option value="name">Name</option>
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+</div>
+
+<div class="all-users-page-div" th:each="user : ${filteredUsers}">
+    <a th:href="@{/users/{userId}(userId=${user.id})}">
+        <div class="user-div">
+            <div th:text="'ID: ' + ${user.id}"></div>
+            <div th:text="'Name: ' + ${user.firstName}"></div>
+            <div>Height: <span th:text="${#numbers.formatDecimal(user.height, 1, 2)}"></span></div>
+            <div>Weight: <span th:text="${#numbers.formatDecimal(user.weight, 1, 2)}"></span></div>
+            <div th:text="'BMI: ' + ${user.bmi_result}"></div>
+            <div th:text="'BMI Type: ' + ${user.bmi_type}"></div>
+        </div>
+    </a>
+</div>
+</body>
+</html>

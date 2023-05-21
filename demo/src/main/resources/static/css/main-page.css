@@ -1,0 +1,44 @@
+.main-page_button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 20px;
+  margin-top: 20px;
+
+  cursor: pointer;
+  padding: 10px 24px;
+  border-radius: 4px;
+  position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20;
+    left: 10;
+    right: 30;
+    width: 20%;
+    height: 12%;
+    z-index: 1000;
+}
+
+
+.main-page_button:hover{
+    background-color:#45a049;
+}
+
+.main-page_button {
+  transition-duration: 0.4s;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+}
+
+
+
+

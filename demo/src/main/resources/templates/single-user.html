@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/single-user.css}">
+</head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<div class="user-details">
+    <div>ID: <span th:text="${user.id}"></span></div>
+    <div>First Name: <span th:text="${user.firstName}"></span></div>
+    <div>Last Name: <span th:text="${user.lastName}"></span></div>
+    <div>Height: <span th:text="${#numbers.formatDecimal(user.height, 1, 2)}"></span></div>
+    <div>Weight: <span th:text="${#numbers.formatDecimal(user.weight, 1, 2)}"></span></div>
+    <div>BMI: <span th:text="${user.bmi_result}"></span></div>
+    <div>BMI Type: <span th:text="${user.bmi_type}"></span></div>
+
+
+    <form class="delete-form" method="POST" th:action="@{/users/{id}(id=${user.id})}">
+        <input type="hidden" name="_method" value="DELETE" />
+        <button type="submit" class="delete-button">Delete User</button>
+    </form>
+
+    <a th:href="@{'/users/' + ${user.id} + '/edit'}" class="update-button">Update User</a>
+
+</div>
+</body>
+</html>

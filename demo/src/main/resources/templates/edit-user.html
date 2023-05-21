@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User Details</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/edit-user.css}">
+</head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<div class="edit-user-details">
+    <h2>Edit User Details</h2>
+
+    <div class="larger-div">
+        <div class="user-details">
+            <h3>Original Information</h3>
+            <div>ID: <span th:text="${user.id}"></span></div>
+            <div>First Name: <span th:text="${user.firstName}"></span></div>
+            <div>Last Name: <span th:text="${user.lastName}"></span></div>
+            <div>Height: <span th:text="${#numbers.formatDecimal(user.height, 1, 2)}"></span></div>
+            <div>Weight: <span th:text="${#numbers.formatDecimal(user.weight, 1, 2)}"></span></div>
+            <div>BMI: <span th:text="${user.bmi_result}"></span></div>
+            <div>BMI Type: <span th:text="${user.bmi_type}"></span></div>
+        </div>
+
+        <div class="form-container">
+            <form method="POST" th:action="@{/users/{id}/update(id=${user.id})}">
+                <input type="hidden" name="id" th:value="${user.id}" />
+                <div class="input-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" th:value="${user.firstName}" />
+                </div>
+                <div class="input-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" th:value="${user.lastName}" />
+                </div>
+                <div class="input-group">
+                    <label for="height">Height:</label>
+                    <input type="number" step="0.01" id="height" name="height" th:value="${user.height}" />
+                </div>
+                <div class="input-group">
+                    <label for="weight">Weight:</label>
+                    <input type="number" step="0.01" id="weight" name="weight" th:value="${user.weight}" />
+                </div>
+                <button type="submit" class="done-button">Done</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

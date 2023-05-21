@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:fragment="title">Default Title</title>
+    <link rel="stylesheet" th:href = "@{/css/header.css}">
+</head>
+<body>
+<header th:fragment="header">
+
+    <nav class="header-nav">
+        <div class="header-nav-div2">
+            <h2 class="logo">//*- Calc</h2>
+        </div>
+        <div class="header-nav-div">
+            <a class="header-nav-text" href="/users"> Home Page </a>
+            <a class="header-nav-text" href="/users/allUsers"> Get All Users </a>
+            <a class="header-nav-text" href="/users/addNewUser"> Add a User </a>
+        </div>
+
+    </nav>
+</header>
+
+<main th:fragment="content">
+
+</main>
+
+<footer th:fragment="footer">
+
+    <p>Copyright &copy; 2023. All rights reserved.</p>
+</footer>
+</body>
+</html>
